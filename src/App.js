@@ -3,7 +3,7 @@ import Calculator from './pages/Calculator'
 
 function App() {
   return (
-    <div className='react-portfolio p-2'>
+    <div className='react-calculator p-2'>
       <Calculator />
       <AppFooter />
     </div>
