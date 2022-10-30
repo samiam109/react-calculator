@@ -1,0 +1,43 @@
+.calculator {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.calculator-display {
+  font-size: 22px;
+  margin-bottom: 0px;
+  margin-top: auto;
+}
+
+.calculator-display span {
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.numpad {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.calculator-digit {
+  font-size: 20px;
+  border-radius: 0px;
+  flex: 1 0 30%;
+  width: 100px;
+  padding: 16px;
+  border-style: none;
+}
+
+.calculator-operator {
+  border-style: none;
+  font-size: 20px;
+  border-radius: 0px;
+  flex: 1 1 0%;
+  width: 100px;
+  padding: 16px;
+  background-color: red;
+}
