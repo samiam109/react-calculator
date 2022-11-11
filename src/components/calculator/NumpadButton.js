@@ -8,7 +8,6 @@ export default function NumpadButton(props) {
   return (
     <Button
       onClick={() => { fn(content) }}
-      key={content}
       className={styles}
       size="lg"
       value={content}

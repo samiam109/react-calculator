@@ -17,6 +17,7 @@ export default function Numpad(props) {
         {
           operators.map(content =>
             <NumpadButton
+              key={content}
               content={content}
               styles='calculator-operator'
               fn={content === 'del' ? handleClearCalculator : updateCalculator}
@@ -28,6 +29,7 @@ export default function Numpad(props) {
         {
           digits.map(content =>
             <NumpadButton
+              key={content}
               content={content}
               styles='calculator-digit'
               fn={content === '=' ? handleCalculate : updateCalculator}
