@@ -11,35 +11,35 @@ export default function Calculator() {
 
   const operators = ['/', '*', '+', '-', 'del'];
 
-  const generateNumpadValues = () => {
-    let minNumber = 1;
-    const numbers = Array(9)
-      .fill()
-      .map(() => String(minNumber++));
-    numbers.push('0', '.', '=')
-    console.log(numbers, "numbers");
-    return numbers;
-  }
+  let minNumber = 1;
+  const numbers = Array(9)
+    .fill()
+    .map(() => String(minNumber++));
+  numbers.push('0', '.', '=')
+
   const isOperator = (value) => operators.includes(value);
   const calculateStatement = (statement) => {
+    if (!statement) return ''
     return new Function(`return ${statement}`)
   }
 
   const updateCalculator = value => {
     if (
-      (isOperator(value) && operators.includes(calculator.slice(-1))) ||
+      (isOperator(value) && operators.includes(`${calculator}`.slice(-1))) ||
       (isOperator(value) && calculator === '')
     ) {
       return;
     }
-    setCalculator(calculator + value)
+    setCalculator((currentCalculator) => {
+      return currentCalculator + value
+    })
     if (!isOperator(value)) {
       setResult(calculateStatement(calculator + value))
     }
   }
 
   const handleCalculate = () => {
-    setCalculator(calculateStatement(calculator))
+    setCalculator(calculateStatement(`${calculator}`))
     setResult('')
   }
 
@@ -58,7 +58,7 @@ export default function Calculator() {
       <Card.Body className="p-0">
         <Numpad
           operators={operators}
-          digits={generateNumpadValues()}
+          digits={numbers}
           events={{
             updateCalculator,
             handleCalculate,
